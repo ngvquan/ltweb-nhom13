@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['place_order'])) {
             $db->updateCustomerProfile($userId, $fullName, $formData['phone'], $formData['address']);
             $_SESSION['flash_message'] = 'Đặt hàng thành công! Mã đơn #' . $orderId . '. BookBuy sẽ liên hệ xác nhận trong thời gian sớm nhất.';
             $_SESSION['flash_type'] = 'success';
-            header('Location: order_success.php?id=' . $orderId);
+            header('Location: index.php?id=' . $orderId);
             exit;
         }
         $errors[] = 'Không thể tạo đơn hàng. Vui lòng thử lại.';
