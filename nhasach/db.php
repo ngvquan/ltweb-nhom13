@@ -299,7 +299,7 @@ class DB {
             return $madh;
             
         } catch (Exception $e) {
-            /
+            
             $this->db->rollback();
             error_log('Create order error: ' . $e->getMessage());
             return null;
@@ -327,7 +327,7 @@ class DB {
         return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
     }
 
-    /
+    
     public function getOrderDetailsByCustomer(int $makh, int $madh)
     {
         
@@ -342,7 +342,7 @@ class DB {
             return null;
         }
         
-        // Lấy chi tiết sản phẩm
+    
         $sqlItems = "SELECT 
                         ct.MASACH,
                         s.TENSACH,
