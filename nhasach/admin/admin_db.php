@@ -150,17 +150,6 @@ class AdminDB extends DB
         $stmt->bind_param('iss', $makh, $tenkh, $noiDung);
         return $stmt->execute();
     }
-    public function getSupportRequestById(int $id)
-    {
-        $sql = "SELECT * FROM TINNHAN WHERE MATN = ?";
-        $stmt = $this->getConnection()->prepare($sql);
-        $stmt->bind_param('i', $id);
-        if (!$stmt->execute()) {
-            return null;
-        }
-        $result = $stmt->get_result();
-        return ($result ? ($result->fetch_assoc() ?: null) : null);
-    }
     public function replySupportRequest(int $id, string $reply)
     {
         $sql = "UPDATE TINNHAN 
