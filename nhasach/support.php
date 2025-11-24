@@ -8,8 +8,10 @@ $supportDb = new AdminDB();
 $siteDb = new DB();
 
 $isLoggedIn = isLoggedIn();
-$isAdminSession = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
-
+if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') {
+    header('Location: admin/theloai.php');
+    exit;
+}
 $categories = [];
 try {
     $categories = $siteDb->getBookCategories();
