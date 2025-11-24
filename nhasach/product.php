@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_cart'], $_POST
 }
 
 $isLoggedIn = isLoggedIn();
-$isAdminSession = isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin';
 $username = $_SESSION['tenkh'] ?? ($_SESSION['username'] ?? '');
 
 $categories = $db->getBookCategories();
