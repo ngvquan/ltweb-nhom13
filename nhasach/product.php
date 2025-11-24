@@ -8,6 +8,11 @@ $db = new DB();
 $bookId = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $book = null;
 
+if (isset($_SESSION['user_type']) && $_SESSION['user_type'] === 'admin') {
+    header('Location: admin/theloai.php');
+    exit;
+}
+
 if ($bookId > 0) {
     $book = $db->getBookById($bookId);
     if (!$book) {
